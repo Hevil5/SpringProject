@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Floor
+  - Block
+  - Ball
+  - UnitFace
+  - CinemachineTarget
+  - Unit
+  - BoundaryBox
+  - Detector
+  - UnitHit
   layers:
   - Default
   - TransparentFX
@@ -11,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - UnitFace
   - 
   - 
   - 

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ClickTest.unity
+    guid: f64c5ad9c1dff514fad0fb7703da5a05
   m_configObjects: {}

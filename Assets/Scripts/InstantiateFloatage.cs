@@ -23,7 +23,7 @@ public class InstantiateFloatage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _lastMake += Time.deltaTime; 
+        _lastMake += Time.deltaTime*4; 
         if (_lastMake > MakeRate)
         {
             coordY = Random.Range(-this.transform.localScale.y / 2, this.transform.localScale.y / 2);

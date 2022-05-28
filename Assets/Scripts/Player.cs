@@ -4,49 +4,49 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float A = 0f;
-    public float B = 1f;
+    public CharacterController Controller;
+    public Transform Cam;
+    public Transform GroundCheck;
+    public LayerMask GroundMask;
+    public float Speed = 6f;
+    public float TurnSmoothTime = 0.1f;
 
-    [Range(0,1)]
-    public float T = 0.5f;
+    public Animator Anim;
+    public float AnimSpeedAdjust = 1.5f;
 
-    private Vector3 move = new Vector3(0, 0, 0);
-    
+    private float _turnSmoothVelocity;
+    private Vector3 _velocity;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //float lerp = Mathf.Lerp(A, B, T);
-        //Vector3 forward = this.transform.forward;
-        //Vector3 move = forward * 0.1f;
-        float angle = 0f;
-        float speed = 0f;
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            speed = -0.1f;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            speed= 0.1f;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            angle-= 1f;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            angle+= 1f;
-        }
-        Vector3 move = this.transform.forward * speed;
-        //this.transform.forward = forward;
-        this.transform.Rotate(Vector3.up, angle);
-        //this.transform.position += move;
-        this.transform.Translate(move);
-        //Debug.Log(T);
+        //animation
+        float animSpeed = Controller.velocity.magnitude;
+        Anim.SetFloat("Forward", animSpeed / Speed / AnimSpeedAdjust);
+
+        //check iif grounded and reset gravity
+        bool isGrounded = Physics.CheckSphere(GroundCheck.position, 0.4f, GroundMask);
+        if (isGrounded && _velocity.y < 0) { _velocity.y = -2f; }
+
+        float h = Input.GetAxisRaw("LeftJoyX");
+        float v = Input.GetAxisRaw("LeftJoyY");
+        Vector3 dir = new Vector3(h, 0, v).normalized;
+
+        //gravity
+        _velocity.y += -9.81f * Time.deltaTime;
+        Controller.Move(_velocity * Time.deltaTime);
+
+        if (dir.magnitude <= 0.1f) { return; }
+
+        //calculate the rotation
+        float targetAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + Cam.eulerAngles.y; //angle between two Axis based on camera
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, TurnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);//rotate player
+
+        //movement
+        Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; //get move direction
+        Controller.Move(moveDir.normalized * Speed * Time.deltaTime);
     }
 }

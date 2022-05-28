@@ -9,6 +9,8 @@ public class ClickToSet : MonoBehaviour
     private GameObject _canvas;
     private RectTransform rect;
     private float scale;
+    [SerializeField]
+    private LayerMask hitMask;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class ClickToSet : MonoBehaviour
         if (Input.GetButtonDown("South"))
         {
             
-            if (Physics.Raycast(ray,out hit,100))
+            if (Physics.Raycast(ray,out hit,Mathf.Infinity,hitMask))
             {
                 //Debug.Log(hit.transform.gameObject.tag);
                 /*if (Mathf.Abs(hit.normal.y) <= 0.1f)

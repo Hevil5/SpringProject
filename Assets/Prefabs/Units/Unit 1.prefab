@@ -6341,6 +6341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1093024630245493534}
+  - component: {fileID: -594836989908116639}
   m_Layer: 0
   m_Name: Unit 1
   m_TagString: Unit
@@ -6365,6 +6366,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-594836989908116639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093024630245493535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936347cddab72cf4a9f0db7fa6684cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1180417055979622674
 GameObject:
   m_ObjectHideFlags: 0
@@ -11537,7 +11550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3476653913818622289}
   m_Layer: 0
-  m_Name: unit
+  m_Name: Unit
   m_TagString: UnitHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13008,7 +13021,7 @@ GameObject:
   - component: {fileID: 2294822768347563984}
   - component: {fileID: 2279160901373144956}
   m_Layer: 0
-  m_Name: unit
+  m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

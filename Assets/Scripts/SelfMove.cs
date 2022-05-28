@@ -18,7 +18,7 @@ public class SelfMove : MonoBehaviour
     void Update()
     {
         
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * speed * Time.deltaTime*4);
         //Debug.Log(this.transform.position.x);
         if (this.transform.position.x<=(-boundaryBox.transform.localScale.x/2f))
         {

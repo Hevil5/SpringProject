@@ -26,6 +26,7 @@ public class BoundaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         functionManager = GameObject.FindGameObjectWithTag("FunctionManager");
         nm1 = NM1.GetComponent<NomadManager1>();
         nm2 = NM2.GetComponent<NomadManager2>();
@@ -37,11 +38,11 @@ public class BoundaryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         units = GameObject.FindGameObjectsWithTag("Unit");
         unitsCount = units.Length;
         reachLimit=fm.testPerfectSquare(unitsCount,out int root);
         scaleFactor = (int)Mathf.Pow(unitsCount, (1f / 3f));
-        Debug.Log(scaleFactor);
         if (scaleFactor >= 2)
         {
             transform.localScale = new Vector3(10, 10, 10) * scaleFactor;
@@ -65,7 +66,6 @@ public class BoundaryManager : MonoBehaviour
             NM2.SetActive(true);
             Debug.Log("active");
             instantiateFloatage.enabled = false;
-
         }
         /*int scaleFactor = unitsCount / 15;
         if (scaleFactor>=2)

@@ -27,8 +27,8 @@ public class NomadManager2 : MonoBehaviour
     private GameObject[] detach;
 
     private List<Vector3> corners;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         boundary = GameObject.FindGameObjectWithTag("BoundaryBox");
         insFlo = boundary.GetComponent<InstantiateFloatage>();
@@ -138,6 +138,11 @@ public class NomadManager2 : MonoBehaviour
             }
 
         }*/
+        
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
 
     }
 

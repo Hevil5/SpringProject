@@ -13,7 +13,6 @@ public class MagnetCheckUnit : MonoBehaviour
     private SelfRotate selfRotate;
     private bool isCaught = false;//物体是否正处于被吸引状态
     private bool isBusy;
-    private TrailRenderer trail;
     private GameObject functionManager;
     private FunctionManager fm;
 
@@ -24,8 +23,7 @@ public class MagnetCheckUnit : MonoBehaviour
         measures = subParent.transform.GetChild;*/
         getCaught = this.GetComponent<GetCaught>();
         selfMove = this.GetComponent<SelfMove>();
-        selfRotate = this.transform.GetChild(0).GetChild(0).GetComponent<SelfRotate>();
-        trail = this.GetComponent<TrailRenderer>();
+        selfRotate = this.transform.GetChild(3).GetComponent<SelfRotate>();
         functionManager = GameObject.FindGameObjectWithTag("FunctionManager");
         fm = functionManager.GetComponent<FunctionManager>();
         //Debug.Log(legion.Length);

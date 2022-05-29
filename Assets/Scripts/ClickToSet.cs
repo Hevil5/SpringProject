@@ -60,7 +60,9 @@ public class ClickToSet : MonoBehaviour
                     //Debug.Log(hit.normal.y);
                     //Quaternion rot = Quaternion.identity;
                     GameObject go = Instantiate(Unit, pos, Quaternion.identity);
+                    //unit form&material manager
                     go.transform.GetChild(0).GetComponent<UnitManager>().enabled = true;
+                    //animation
                     go.transform.GetChild(1).gameObject.SetActive(true);
 
 

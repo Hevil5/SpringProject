@@ -17,9 +17,6 @@ public class BoundaryManager : MonoBehaviour
     private GameObject NM1;
     [SerializeField]
     private GameObject NM2;
-    private NomadManager1 nm1;
-    private NomadManager2 nm2;
-    private GameObject functionManager;
     private FunctionManager fm;
     private InstantiateFloatage instantiateFloatage;
 
@@ -27,10 +24,7 @@ public class BoundaryManager : MonoBehaviour
     void Start()
     {
 
-        functionManager = GameObject.FindGameObjectWithTag("FunctionManager");
-        nm1 = NM1.GetComponent<NomadManager1>();
-        nm2 = NM2.GetComponent<NomadManager2>();
-        fm = functionManager.GetComponent<FunctionManager>();
+        fm = GameObject.FindGameObjectWithTag("FunctionManager").GetComponent<FunctionManager>();
         instantiateFloatage = this.GetComponent<InstantiateFloatage>();
 
     }
@@ -42,7 +36,7 @@ public class BoundaryManager : MonoBehaviour
         units = GameObject.FindGameObjectsWithTag("Unit");
         unitsCount = units.Length;
         reachLimit=fm.testPerfectSquare(unitsCount,out int root);
-        scaleFactor = (int)Mathf.Pow(unitsCount, (1f / 3f));
+        scaleFactor = (int)Mathf.Pow(unitsCount, (1f / 3f))/2;
         if (scaleFactor >= 2)
         {
             transform.localScale = new Vector3(10, 10, 10) * scaleFactor;

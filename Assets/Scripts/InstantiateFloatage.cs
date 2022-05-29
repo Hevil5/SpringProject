@@ -31,6 +31,10 @@ public class InstantiateFloatage : MonoBehaviour
     void Update()
     {
         makeFactor = this.GetComponent<BoundaryManager>().scaleFactor;
+        if (makeFactor<1)
+        {
+            makeFactor = 1;
+        }
         makeSpeed = slider.value;
         _lastMake += Time.deltaTime * makeSpeed*makeFactor;
         if (_lastMake > MakeRate)

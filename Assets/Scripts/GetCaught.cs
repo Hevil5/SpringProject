@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GetCaught : MonoBehaviour
 {
-    public GameObject targetObj;
+    public Transform targetObj;
+    private GameObject[] legion;
+    private FunctionManager fm; 
     private Transform unit;
     private float scale;
     private Vector3 rayD;
@@ -17,9 +19,12 @@ public class GetCaught : MonoBehaviour
 
     private void Start()
     {
+        legion = GameObject.FindGameObjectsWithTag("Unit");
+        fm = GameObject.FindGameObjectWithTag("FunctionManager").GetComponent<FunctionManager>();
+        targetObj = fm.GetNearestGameObject(this.transform, legion);
         unit = this.transform.GetChild(3);
         //从漂浮物中心向最近物体中心发射一条线与最近面相交，从而确定最近面的法向
-        rayD = targetObj.transform.position- this.transform.position;
+        rayD = targetObj.position- this.transform.position;
         rayM = rayD.magnitude;
         trail = this.GetComponent<TrailRenderer>();
         mcu = this.GetComponent<MagnetCheckUnit>();
@@ -37,6 +42,10 @@ public class GetCaught : MonoBehaviour
                 scale = 0.5023f;
             }
             pos = hit.transform.position + hit.normal * scale;
+        }
+        if (hit.transform.parent==null)
+        {
+            this.enabled = false;
         }
     }
 
@@ -56,7 +65,7 @@ public class GetCaught : MonoBehaviour
             this.transform.GetChild(0).gameObject.SetActive(true);
             this.transform.GetChild(2).gameObject.SetActive(true);
             this.gameObject.tag = "Unit";
-            targetObj.tag = "Unit";
+            targetObj.gameObject.tag = "Unit";
             su.enabled = true;
             this.enabled = false;
             //trail.enabled = true;

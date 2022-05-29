@@ -52,12 +52,12 @@ public class MagnetCheckUnit : MonoBehaviour
         {
             return;
         }
-        nearestUnit=fm.GetNearestGameObject(this.gameObject.transform,legion);
+        nearestUnit=fm.GetNearestGameObject(this.transform,legion);
         su = nearestUnit.GetComponent<SetUnit>();
         isBusy = su.isBusy;
         Vector3 minDisV1 = this.transform.position - nearestUnit.position;
         float minDisM1 = minDisV1.magnitude;
-        if (minDisM1 <= 4f&&!isBusy)
+        if (minDisM1 <= 3f&&!isBusy)
         {
             su.isBusy = true;
             isCaught = true;
@@ -67,7 +67,6 @@ public class MagnetCheckUnit : MonoBehaviour
         if (isCaught)
         {
             getCaught.enabled = true;
-            getCaught.targetObj = nearestUnit.gameObject;
             //Instantiate(tPosition, nearestUnit.position, Quaternion.identity);
             this.enabled = false;
             selfMove.enabled = false;

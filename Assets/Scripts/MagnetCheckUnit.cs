@@ -13,7 +13,6 @@ public class MagnetCheckUnit : MonoBehaviour
     private SelfRotate selfRotate;
     private bool isCaught = false;//物体是否正处于被吸引状态
     private bool isBusy;
-    private TrailRenderer trail;
     private GameObject functionManager;
     private FunctionManager fm;
 
@@ -24,8 +23,7 @@ public class MagnetCheckUnit : MonoBehaviour
         measures = subParent.transform.GetChild;*/
         getCaught = this.GetComponent<GetCaught>();
         selfMove = this.GetComponent<SelfMove>();
-        selfRotate = this.transform.GetChild(0).GetChild(0).GetComponent<SelfRotate>();
-        trail = this.GetComponent<TrailRenderer>();
+        selfRotate = this.transform.GetChild(3).GetComponent<SelfRotate>();
         functionManager = GameObject.FindGameObjectWithTag("FunctionManager");
         fm = functionManager.GetComponent<FunctionManager>();
         //Debug.Log(legion.Length);
@@ -54,12 +52,12 @@ public class MagnetCheckUnit : MonoBehaviour
         {
             return;
         }
-        nearestUnit=fm.GetNearestGameObject(this.gameObject.transform,legion);
+        nearestUnit=fm.GetNearestGameObject(this.transform,legion);
         su = nearestUnit.GetComponent<SetUnit>();
         isBusy = su.isBusy;
         Vector3 minDisV1 = this.transform.position - nearestUnit.position;
         float minDisM1 = minDisV1.magnitude;
-        if (minDisM1 <= 4f&&!isBusy)
+        if (minDisM1 <= 3f&&!isBusy)
         {
             su.isBusy = true;
             isCaught = true;
@@ -69,7 +67,6 @@ public class MagnetCheckUnit : MonoBehaviour
         if (isCaught)
         {
             getCaught.enabled = true;
-            getCaught.targetObj = nearestUnit.gameObject;
             //Instantiate(tPosition, nearestUnit.position, Quaternion.identity);
             this.enabled = false;
             selfMove.enabled = false;

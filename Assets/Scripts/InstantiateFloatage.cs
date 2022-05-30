@@ -1,29 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstantiateFloatage : MonoBehaviour
 {
     private float coordX;
     private float coordY;
     private float coordZ;
+    private float makeFactor;
+    public float makeSpeed=1f;
     [SerializeField]
-    private float MakeRate;
-    private float _lastMake = 0f;
+    private float MakeRate=1f;
+    private float _lastMake;
     private int _makeCount;
+    private BoundaryManager bm;
 
     [SerializeField]
     private GameObject flotage;
 
+    private Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
+        slider = FindObjectOfType<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _lastMake += Time.deltaTime*4; 
+        makeFactor = this.GetComponent<BoundaryManager>().scaleFactor;
+        if (makeFactor<1)
+        {
+            makeFactor = 1;
+        }
+        makeSpeed = slider.value;
+        _lastMake += Time.deltaTime * makeSpeed*makeFactor;
         if (_lastMake > MakeRate)
         {
             coordY = Random.Range(-this.transform.localScale.y / 2, this.transform.localScale.y / 2);

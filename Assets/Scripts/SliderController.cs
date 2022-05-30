@@ -16,6 +16,6 @@ public class SliderController : MonoBehaviour
     void Update()
     {
         float step = Input.GetAxis("HorizontalButton");
-        slider.value = slider.value + step * 0.1f;
+        slider.value = slider.value + step * 0.03f;
     }
 }

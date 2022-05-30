@@ -36,7 +36,7 @@ public class NomadManager2 : MonoBehaviour
         bm = boundary.GetComponent<BoundaryManager>();
         fm = functionManager.GetComponent<FunctionManager>();
         float sf = (bm.scaleFactor - 1) * 5f;
-        Debug.Log(sf);
+        //Debug.Log(sf);
         disTest = new Dictionary<Vector3, List<GameObject>>();
 
         pos0 = new Vector3(sf, sf, sf);
@@ -155,7 +155,7 @@ public class NomadManager2 : MonoBehaviour
             detach[i].transform.position= Vector3.Lerp(detach[i].transform.position, poses[i], Time.deltaTime);
             float disM0 = Vector3.Distance(detach[i].transform.position, poses[i]);
             disMA += disM0;
-            if (disM0<0.6f)
+            if (disM0<0.3f)
             {
                 detach[i].transform.position = poses[i];
             }

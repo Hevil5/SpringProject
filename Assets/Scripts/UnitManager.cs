@@ -6,7 +6,8 @@ public class UnitManager : MonoBehaviour
 {
     private int numberFactor;
     private NeighboursCount nb;
-    private DetectClearFace dcf;
+    private DetectClearFace dcf1;
+    private DetectClearFace dcf2;
     [SerializeField]
     private Material[] lcMat;
 
@@ -16,7 +17,8 @@ public class UnitManager : MonoBehaviour
     {
         
         nb = this.transform.parent.GetComponentInChildren<NeighboursCount>();
-        dcf = this.transform.parent.GetComponentInChildren<DetectClearFace>();
+        dcf1 = this.transform.parent.GetChild(2).GetChild(0).GetComponent<DetectClearFace>();
+        dcf2 = this.transform.parent.GetChild(2).GetChild(10).GetComponent<DetectClearFace>();
         core = this.transform.GetChild(2).GetComponentsInChildren<MeshRenderer>();
     }
 
@@ -24,7 +26,8 @@ public class UnitManager : MonoBehaviour
     void Update()
     {
         numberFactor = nb.numberOfNeighbours;
-        if (dcf.clearFace)
+        //Debug.Log(dcf1.clearFace);
+        if (dcf1.clearFace==true&&dcf2.clearFace==true)
         {
             this.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -34,41 +37,38 @@ public class UnitManager : MonoBehaviour
         }
 
 
-        if (numberFactor >=0 && numberFactor < 3)
+        if (numberFactor >=0 && numberFactor < 2)
         {
             for (int i = 0; i < core.Length; i++)
             {
                 core[i].material = lcMat[0];
             }
+            this.gameObject.tag = "Type00";
         }
-        else if (numberFactor >= 3 && numberFactor < 6)
+        else if (numberFactor >= 2 && numberFactor < 3)
         {
             for (int i = 0; i < core.Length; i++)
             {
                 core[i].material = lcMat[1];
             }
+            this.gameObject.tag = "Type01";
         }
-        else if (numberFactor >= 6 && numberFactor < 9)
+        else if (numberFactor >=3  && numberFactor < 4)
         {
             for (int i = 0; i < core.Length; i++)
             {
                 core[i].material = lcMat[2];
             }
+            this.gameObject.tag = "Type02";
         }
-        else if (numberFactor >= 9 && numberFactor < 12)
+        else if (numberFactor >= 4)
         {
             for (int i = 0; i < core.Length; i++)
             {
                 core[i].material = lcMat[3];
             }
+            this.gameObject.tag = "Type03";
         }
-        else if (numberFactor >= 12 && numberFactor < 15)
-        {
-            for (int i = 0; i < core.Length; i++)
-            {
-                core[i].material = lcMat[4];
-            }
-        }
-
+        
     }
 }

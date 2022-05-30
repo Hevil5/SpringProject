@@ -20,6 +20,11 @@ TagManager:
   - BusyUnit
   - Flock
   - NomadFlock
+  - Type00
+  - Type01
+  - Type02
+  - Type03
+  - Wing
   layers:
   - Default
   - TransparentFX

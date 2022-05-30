@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 645257500314368167}
   m_Layer: 2
   m_Name: Hexagon_5
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2008,9 +2008,10 @@ GameObject:
   - component: {fileID: 6296549812529287589}
   - component: {fileID: 1824802694465435183}
   - component: {fileID: 8719635389409079275}
+  - component: {fileID: 5016282136057683438}
   m_Layer: 2
   m_Name: Square_1
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2105,6 +2106,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d244a2a46a80384db0926f31ecab0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5016282136057683438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282969830243312336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b33ee9c11fd234794cf4e874e128fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearFace: 1
 --- !u!1 &1322678789276450004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,7 +3090,7 @@ GameObject:
   - component: {fileID: 1168615032429644100}
   m_Layer: 0
   m_Name: Wing
-  m_TagString: Untagged
+  m_TagString: Wing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3726,7 +3740,7 @@ GameObject:
   - component: {fileID: 4161794653407728708}
   m_Layer: 2
   m_Name: Hexagon_1
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10401,7 +10415,7 @@ GameObject:
   - component: {fileID: 1018415252524681557}
   m_Layer: 2
   m_Name: Square_3
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10832,7 +10846,7 @@ GameObject:
   - component: {fileID: 8062416749250412938}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: UnitHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11827,7 +11841,7 @@ GameObject:
   - component: {fileID: 8165088283393593134}
   m_Layer: 2
   m_Name: Square_5
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12212,7 +12226,7 @@ GameObject:
   - component: {fileID: 5055206892515616697}
   m_Layer: 2
   m_Name: Square_6
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12771,7 +12785,7 @@ GameObject:
   - component: {fileID: 5438445691381899722}
   m_Layer: 2
   m_Name: Hexagon_3
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13088,7 +13102,7 @@ GameObject:
   - component: {fileID: 6660519693354555580}
   m_Layer: 2
   m_Name: Hexagon_6
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13603,7 +13617,7 @@ GameObject:
   - component: {fileID: 5125058635044759600}
   m_Layer: 2
   m_Name: Square_4
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13713,7 +13727,7 @@ GameObject:
   - component: {fileID: 8633493904598574818}
   m_Layer: 2
   m_Name: Hexagon_4
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14619,7 +14633,7 @@ GameObject:
   - component: {fileID: 330119423216354015}
   m_Layer: 2
   m_Name: Hexagon_2
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14864,7 +14878,7 @@ GameObject:
   - component: {fileID: 5740597752392785892}
   m_Layer: 2
   m_Name: Hexagon_7
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15584,7 +15598,7 @@ GameObject:
   - component: {fileID: 305639516031672543}
   m_Layer: 2
   m_Name: Square_2
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21751,7 +21765,7 @@ GameObject:
   - component: {fileID: 5209894989386922364}
   m_Layer: 2
   m_Name: Hexagon_8
-  m_TagString: Untagged
+  m_TagString: UnitFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

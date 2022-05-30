@@ -8,6 +8,7 @@ public class BoundaryManager : MonoBehaviour
 
     public int unitsCount;
     public int scaleFactor;
+    public int clickCount;
     public bool reachLimit = false;
     public bool reachLimit1=false;
     public bool reachLimit2=false;
@@ -48,7 +49,7 @@ public class BoundaryManager : MonoBehaviour
         if (reachLimit1&&guard1)
         {
             NM1.SetActive(true);
-            instantiateFloatage.enabled = false;
+            //instantiateFloatage.enabled = false;
             reachLimit1 = false;
         }
         if (reachLimit&&scaleFactor>=3)
@@ -58,8 +59,8 @@ public class BoundaryManager : MonoBehaviour
         if (reachLimit2)
         {
             NM2.SetActive(true);
-            Debug.Log("active");
-            instantiateFloatage.enabled = false;
+            //Debug.Log("active");
+            //instantiateFloatage.enabled = false;
         }
         /*int scaleFactor = unitsCount / 15;
         if (scaleFactor>=2)

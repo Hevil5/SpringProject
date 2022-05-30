@@ -6,21 +6,26 @@ public class ClickToSet : MonoBehaviour
 {
     public GameObject Unit;
     [SerializeField]
+    private GameObject boundary;
+    [SerializeField]
     private GameObject _canvas;
     private RectTransform rect;
     private float scale;
     [SerializeField]
     private LayerMask hitMask;
+    private BoundaryManager bm;
 
     // Start is called before the first frame update
     void Start()
     {
         rect = _canvas.GetComponent<RectTransform>();
+        bm = boundary.GetComponent<BoundaryManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Ray ray = Camera.main.ScreenPointToRay(rect.position);
         RaycastHit hit;
         //int octLayerMask = 1;
@@ -48,6 +53,7 @@ public class ClickToSet : MonoBehaviour
                     //Debug.Log("South");
                 if (hit.transform.parent.tag=="UnitHit")
                 {
+                    bm.clickCount++;
                     if (hit.transform.name.Contains("Square"))
                     {
                         scale = 0.58f;
